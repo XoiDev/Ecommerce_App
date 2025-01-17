@@ -29,7 +29,7 @@ interface Discount {
   discountRate: number;
   productIds: [string];
   numberCodeApply: number;
-  isActive: boolean;
+  isActive: string;
   productDiscountCodes: [] | null;
   updatedAt?: string;
   code?: string;
@@ -54,7 +54,7 @@ const DiscountCode: React.FC = () => {
   const [pageProduct, setPageProduct] = useState(1);
   const [pageProTotal, setPageProTotal] = useState(2); // Cập nhật totalPage sau khi nhận được dữ liệu
   const [searchTerm, setSearchTerm] = useState<string | null>(null);
-  const [filterActive, setFilterActive] = useState<string | null>(null);
+  const [filterActive, setFilterActive] = useState<boolean | null>(null);
   const [filterSortby, setFilterSortby] = useState<string | null>(null);
   const [filterSortOrd, setFilterSortOrd] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -137,7 +137,6 @@ const DiscountCode: React.FC = () => {
         );
         setPageProTotal(response.data.totalPages);
         setProducts((prevProducts) => [...prevProducts, ...response.data.data]);
-        console.log("work");
       } catch (err) {
         setError("Failed to fetch products.");
         console.error(err);
@@ -183,7 +182,6 @@ const DiscountCode: React.FC = () => {
   };
 
   const handleSaveDiscount = async (values: any) => {
-    console.log("work");
     if (editingDiscountCode) {
       console.log("edit", editingDiscountCode);
       try {
@@ -293,8 +291,8 @@ const DiscountCode: React.FC = () => {
           onChange={(value) => setFilterActive(value)}
           style={{ width: "15%" }}
         >
-          <Option value="true">Active</Option>
-          <Option value="false">InActive</Option>
+          <Option value={true}>Active</Option>
+          <Option value={false}>InActive</Option>
         </Select>
         <Select
           className="custom-select"

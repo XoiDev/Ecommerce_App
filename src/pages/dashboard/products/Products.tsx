@@ -125,7 +125,7 @@ const Products: React.FC = () => {
     const fethCateId = async () => {
       try {
         const response = await api.get(`/categories`);
-        setCate(response.data.data);
+        setCate(response.data);
       } catch {
         setError("Failed to fetch products.");
       }
@@ -167,6 +167,8 @@ const Products: React.FC = () => {
       try {
         const uploadResponse = await api.postForm("upload", formData);
         imageUrl = uploadResponse.data.url.replace("htpp:", "http:");
+        console.log(imageUrl);
+
         setNewProduct({ ...newProduct, thumbnail: imageUrl });
       } catch (error) {
         console.error("Error uploading file: ", error);
@@ -265,9 +267,7 @@ const Products: React.FC = () => {
       console.log(err);
     }
   };
-
   const [form] = Form.useForm();
-
   return (
     <>
       <div className="flex justify-between ">
@@ -349,7 +349,6 @@ const Products: React.FC = () => {
 
                 {cate?.length > 0 && pro.categoryId && (
                   <td className="">
-                    {pro.categoryId}
                     {cate.find((cate) => cate.id === pro.categoryId)?.name ||
                       "N/A"}
                   </td>
@@ -360,6 +359,7 @@ const Products: React.FC = () => {
                       ?.name || "N/A"}
                   </td>
                 )}
+
                 <td>
                   <div className="flex items-center text-gray-500 cursor-pointer gap-x-3">
                     <EyeOutlined
@@ -465,7 +465,6 @@ const Products: React.FC = () => {
             </Form.Item>
             <Form.Item label="Category IDs" name="categoryId">
               <Select
-                mode="multiple"
                 placeholder="Select Categories"
                 optionLabelProp="label"
                 className="w-full"

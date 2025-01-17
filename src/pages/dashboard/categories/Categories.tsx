@@ -40,7 +40,6 @@ const Categories: React.FC = () => {
       try {
         const response = await api.get("/categories");
         setCategories(response.data);
-        console.log(response);
       } catch {
         setError("Failed to fetch Cate.");
         console.log(error);
