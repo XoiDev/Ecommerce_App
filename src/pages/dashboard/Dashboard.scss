@@ -1,0 +1,19 @@
+.ant-layout-sider {
+  min-height: 100vh;
+}
+.ant-btn .ant-btn-icon .anticon {
+  width: 35px !important;
+  height: 35px !important;
+  margin: 10px !important;
+  font-size: 30px;
+}
+.ant-col-md-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-menu-item:hover {
+  background-color: rgb(147 197 253 / var(--tw-bg-opacity, 1)) !important;
+  transition: all 0.3s ease-in-out;
+}

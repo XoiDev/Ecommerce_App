@@ -1,0 +1,55 @@
+Project:
+- Reactjs
+- Typescript
+- Axios
+- Library UI: any 
+- dayjs
+
+tuần 1
+--------------
+1. Login admin (done) 
+2. CRUD vendors (done) 
+3. CRUD categories  (done)
+4. CRUD discount code ()
+mini project
+
+tuần 2
+--------------
+1. CRUD Product  
+
+
+fix: 
+- validation login (done) - có token là login không cần phải đăng nhập lại
+- thumbnail là ảnh  không url (done)
+- add new discount : productid phải là select một mảng (done)
+- edit:  discount thiếu codeId nên không thể edit.
+- sửa lai call api : dung api.ts của mentor cho sẵn tránh lặp lại token gửi header (done)
+
+
+
+
+
+
+- edit form này nhưng nút add đã được validate ở discount
+
+- toastify khi thêm xoá sửa (done)
+- sửa lại product đỗ vendor ra bị sai (done)
+
+- upload ảnh luôn không đợi save (done)
+
+- toast khi qua trang khác bị tạo lại toast mới (done)
+=> lí do: Toast bị mounted lại: Khi chuyển trang, nếu toast nằm trong thành phần cha chung, nó sẽ được remount khi trạng thái của ứng dụng thay đổi.
+
+
+- search hay filter trả lại trang 1 khi search không được nằm ở trang khác (done)
+- active là true và false đang sai là inactive và active
+
+- f5 dashboard thành vendor
+- productid hiện list ra là id ảnh và tên 
+
+- detail product sai không hiển 
+- start date enđate tự động field ngày hôm nay và ngày mai 
+- Modal tách code ra sài không sài chung nữa
+
+- thumbnail khi import là set upload luôn không 
+- footer modal code bị lặp lại (tạo hook dùng)
